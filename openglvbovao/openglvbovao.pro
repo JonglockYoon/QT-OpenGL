@@ -13,9 +13,9 @@ INCLUDEPATH += ".\winlib\freeglut\include"
 INCLUDEPATH += ".\winlib\glew-2.1.0\include"
 INCLUDEPATH += ".\winlib\glfw-3.2.1\include\GLFW"
 
-LIBS += -L"..\openglvbo\winlib\freeglut\lib\x64" -lfreeglut
-LIBS += -L"..\openglvbo\winlib\glew-2.1.0\lib\Release\x64" -lglew32
-LIBS += -L"..\openglvbo\winlib\glfw-3.2.1\lib\x64" -lglfw3
+LIBS += -L"..\openglvbovao\winlib\freeglut\lib\x64" -lfreeglut
+LIBS += -L"..\openglvbovao\winlib\glew-2.1.0\lib\Release\x64" -lglew32
+LIBS += -L"..\openglvbovao\winlib\glfw-3.2.1\lib\x64" -lglfw3
 
 DEFINES += Q_OS_WIN
 
