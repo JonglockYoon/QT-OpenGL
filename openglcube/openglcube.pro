@@ -3,10 +3,10 @@ QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = openglcube
 TEMPLATE = app
 
 win32 {
+TARGET = ../../openglcube/bin/openglcube
 INCLUDEPATH += ".\assimp-4.1.0\include"
 INCLUDEPATH += ".\DevIL\include"
 LIBS += -L"..\openglcube\assimp-4.1.0\lib\x64\Debug" -lassimp-vc140-mt
@@ -16,6 +16,7 @@ LIBS += -lGLU32
 }
 
 linux {
+TARGET = ../openglcube/bin/openglcube
 INCLUDEPATH += /usr/local/include
 LIBS += -L/usr/local/lib -lassimp
 LIBS += -lIL -lILU -lILUT -lGLU
