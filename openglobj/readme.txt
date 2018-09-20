@@ -4,6 +4,7 @@ assimp-4.1.0 library mImporter.ReadFile() 실행중 ObjFileParser::getMaterialLi
 
 .obj 파일만 있고 .mtl파일이 없을때 error가 발생할수 있다.
 
+ObjFileParser.cpp
 622 line
     #include <sys/stat.h>
 
