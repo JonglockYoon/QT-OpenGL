@@ -1,8 +1,12 @@
 
-assimp-4.1.0 library mImporter.ReadFile() 실행중 ObjFileParser::getMaterialLib()
-함수에서 error를 만나는 경우가 있으면..
 
-.obj 파일만 있고 .mtl파일이 없을때 error가 발생할수 있다.
+If the function encounters an error ...
+
+assimp-4.1.0 library mImporter.ReadFile() -> ObjFileParser::getMaterialLib()
+
+An error may occur when there is only an .obj file and there is no .mtl file.
+
+Add the following lines and build the Library again.
 
 ObjFileParser.cpp
 622 line
