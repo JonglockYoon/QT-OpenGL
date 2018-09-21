@@ -340,23 +340,16 @@ void CGLView::resizeGL(int pWidth, int pHeight)
 void CGLView::DoCubeDisplay(const SBBox& pBBox)
 {
     // ai를 이용해 obj를 load하면 아래와 같은 face를 가짐.
-    //    v3----- v7
-    //   /|      /|
-    //  v2------v6|
-    //  | |     | |
-    //  | |v0---|-|v4
-    //  |/      |/
-    //  v1------v5
+    // cube ////////////////////////////////////////
+    //    v3----- v7                  v6----- v5
+    //   /|      /|                  /|      /|
+    //  v2------v6|    through      v1------v0|
+    //  | |     | |    elements[]   | |     | |
+    //  | |v0---|-|v4  ========>    | |v7---|-|v4
+    //  |/      |/                  |/      |/
+    //  v1------v5                  v2------v3
+    //
 
-    // ==> 변환을 위해 elements[] 도입.
-
-    //    v6----- v5
-    //   /|      /|
-    //  v1------v0|
-    //  | |     | |
-    //  | |v7---|-|v4
-    //  |/      |/
-    //  v2------v3
 
     GLfloat vertices[12*6];
     GLfloat normals[12*6];
