@@ -231,6 +231,7 @@ void CGLView::ImportTextures()
     //Cleanup
     ilDeleteImages(1, &id_image);// Because we have already copied image data into texture data we can release memory used by image.
 
+    update();
 }
 
 void CGLView::BBox_GetForNode(const aiNode& pNode, const aiMatrix4x4& pParent_TransformationMatrix, SBBox& pNodeBBox, bool& pFirstAssign)
@@ -446,6 +447,14 @@ void CGLView::initializeGL()
 
     InitTextures();
 
+    updateTimer = new QTimer(this);
+    //timer->setSingleShot(true);
+    connect(updateTimer, &QTimer::timeout, [=]() {
+        if (mScene != nullptr)
+            ImportTextures();
+    } );
+    updateTimer->start(10);
+
 }
 
 void CGLView::resizeGL(int pWidth, int pHeight)
@@ -586,7 +595,7 @@ void CGLView::DoCubeDisplay(const SBBox& pBBox)
     glDisableClientState(GL_NORMAL_ARRAY);
 
     glPopMatrix();
-    update();
+    //update();
 
 }
 
@@ -625,7 +634,6 @@ void CGLView::paintGL()
     glDisable(GL_TEXTURE_2D);
 
     if (mScene != nullptr) {
-        ImportTextures();
         Draw_Node(mScene->mRootNode);
         DoCubeDisplay(mScene_BBox);
     }
@@ -646,6 +654,8 @@ CGLView::CGLView(QWidget *pParent)
 
 CGLView::~CGLView()
 {
+    if (updateTimer)
+        updateTimer->stop();
 }
 
 void CGLView::Camera_Set(const size_t pCameraNumber)

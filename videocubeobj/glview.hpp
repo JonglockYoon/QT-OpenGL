@@ -6,6 +6,7 @@
 
 #include <assimp/scene.h>
 #include <QOpenGLBuffer>
+#include <QTimer>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -409,5 +410,7 @@ public:
     //minimum and maximum object area
     const int MIN_OBJECT_AREA = 10*10;
     const int MAX_OBJECT_AREA = FRAME_HEIGHT*FRAME_WIDTH/1.5;
+
+    QTimer *updateTimer;
 
 };// class CGLView
