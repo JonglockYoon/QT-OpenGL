@@ -19,25 +19,25 @@ LIBS += -lopengl32
 LIBS += -lGLU32
 
 DEFINES += Q_OS_WIN
-LIBS += -L"..\videocubeobj\winlib"
+LIBS += -L"..\winlib"
 LIBS += -lws2_32
-INCLUDEPATH += "..\videocubeobj\winlib\include"
+INCLUDEPATH += "..\winlib\include"
 
 CONFIG(debug, debug|release) {
-LIBS += "..\videocubeobj\winlib\opencv_world340d.lib"
-LIBS += "..\videocubeobj\winlib\Debug\qroilib.lib"
-LIBS += "..\videocubeobj\winlib\Debug\jpeg.lib"
-LIBS += "..\videocubeobj\winlib\Debug\png.lib"
-LIBS += "..\videocubeobj\winlib\Debug\zlib.lib"
-LIBS += "..\videocubeobj\winlib\Debug\lcms2.lib"
+LIBS += "..\winlib\opencv_world340d.lib"
+LIBS += "..\winlib\Debug\qroilib.lib"
+LIBS += "..\winlib\Debug\jpeg.lib"
+LIBS += "..\winlib\Debug\png.lib"
+LIBS += "..\winlib\Debug\zlib.lib"
+LIBS += "..\winlib\Debug\lcms2.lib"
 }
 CONFIG(release, debug|release) {
-LIBS += "..\videocubeobj\winlib\opencv_world340.lib"
-LIBS += "..\videocubeobj\winlib\Release\qroilib.lib"
-LIBS += "..\videocubeobj\winlib\Release\jpeg.lib"
-LIBS += "..\videocubeobj\winlib\Release\png.lib"
-LIBS += "..\videocubeobj\winlib\Release\zlib.lib"
-LIBS += "..\videocubeobj\winlib\Release\lcms2.lib"
+LIBS += "..\winlib\opencv_world340.lib"
+LIBS += "..\winlib\Release\qroilib.lib"
+LIBS += "..\winlib\Release\jpeg.lib"
+LIBS += "..\winlib\Release\png.lib"
+LIBS += "..\winlib\Release\zlib.lib"
+LIBS += "..\winlib\Release\lcms2.lib"
 }
 
 }
@@ -70,7 +70,11 @@ LIBS += -lrt -lm -ldl -lXrandr -lXinerama -lXxf86vm -lXext -lXcursor -lXrender -
 
 }
 
-INCLUDEPATH += .
+INCLUDEPATH += . \
+   ../qroilib/engine \
+   ../qroilib/qroilib \
+   ../qroilib/qroilib/document \
+   ../qroilib/qroilib/roilib
 
 DEFINES += QT_DEPRECATED_WARNINGS
 

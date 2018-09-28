@@ -2,6 +2,7 @@
 #include <QTime>
 #include <QDebug>
 #include <QMessageBox>
+#include "imgprocbase.h"
 
 struct VertexData
 {
@@ -18,6 +19,8 @@ struct VertexData
 GLfloat		xrot;
 GLfloat		yrot;
 GLfloat		zrot;
+
+using namespace Qroilib;
 
 /**********************************/
 /********** SHelper_Mesh **********/
@@ -178,9 +181,15 @@ void CGLView::ImportTextures()
     //filter HSV image between values and store filtered image to
     //threshold matrix
     cv::inRange(HSV,cv::Scalar(H_MIN,S_MIN,V_MIN),cv::Scalar(H_MAX,S_MAX,V_MAX),threshold);
+
     //perform morphological operations on thresholded image to eliminate noise
     //and emphasize the filtered object(s)
-    morphOps(threshold);
+    //morphOps(threshold);
+
+    CImgProcBase base;
+    static IplImage iplImage = threshold;
+    base.FilterLargeArea(&iplImage);  // change morphOps() to FilterLargeArea()
+    cv::cvarrToMat(&iplImage).copyTo(threshold);
 
     trackFilteredObject(x,y,threshold,cameraFeed);
 
