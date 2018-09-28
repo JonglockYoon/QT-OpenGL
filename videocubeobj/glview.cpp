@@ -194,9 +194,9 @@ void CGLView::ImportTextures()
     trackFilteredObject(x,y,threshold,cameraFeed);
 
     std::vector<uchar> buf;
-    std::vector<int> params(2);
-    params[0] = CV_IMWRITE_JPEG_QUALITY;
-    params[1] = 80;
+    //std::vector<int> params(2);
+    //params[0] = CV_IMWRITE_JPEG_QUALITY;
+    //params[1] = 80;
 
     cv::imencode(".bmp", cameraFeed, buf);
     //cv::imencode(".jpg", cameraFeed, buf, params );
