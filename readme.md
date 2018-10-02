@@ -11,7 +11,7 @@ videocubeobj - opengl cube draw with video texure and model
 https://blog.naver.com/jerry1455/221367511195 - Video Draw on BBox Texure with Obj and OpenCV
 https://blog.naver.com/jerry1455/221363688067 - OpenGL Draw Obj with BBox Texure
 https://blog.naver.com/jerry1455/221361840907 - OpenGL Draw Cube with Texture
-https://blog.naver.com/jerry1455/221336605394 - OpenGL VAO
+https://blog.naver.com/jerry1455/221336605394 - OpenGL VAO</p>
 https://blog.naver.com/jerry1455/221336603745 - OpenGL VBO
 
 
