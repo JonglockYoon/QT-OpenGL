@@ -9,13 +9,13 @@ QT       += opengl
 
 win32 {
 
-INCLUDEPATH += ".\winlib\freeglut\include"
-INCLUDEPATH += ".\winlib\glew-2.1.0\include"
-INCLUDEPATH += ".\winlib\glfw-3.2.1\include\GLFW"
+INCLUDEPATH += "..\winlib\freeglut\include"
+INCLUDEPATH += "..\winlib\glew-2.1.0\include"
+INCLUDEPATH += "..\winlib\glfw-3.2.1\include\GLFW"
 
-LIBS += -L"..\openglvbovao\winlib\freeglut\lib\x64" -lfreeglut
-LIBS += -L"..\openglvbovao\winlib\glew-2.1.0\lib\Release\x64" -lglew32
-LIBS += -L"..\openglvbovao\winlib\glfw-3.2.1\lib\x64" -lglfw3
+LIBS += -L"..\winlib\freeglut\lib\x64" -lfreeglut
+LIBS += -L"..\winlib\glew-2.1.0\lib\Release\x64" -lglew32
+LIBS += -L"..\winlib\glfw-3.2.1\lib\x64" -lglfw3
 
 DEFINES += Q_OS_WIN
 
@@ -24,6 +24,7 @@ CONFIG(debug, debug|release) {
 CONFIG(release, debug|release) {
 }
 
+TARGET = ../../bin/openglvbovao
 }
 
 linux {
@@ -35,10 +36,10 @@ LIBS += -lGLEW -lGL -lGLU
 LIBS += -lglfw3 -lrt -lm -ldl -lXrandr -lXinerama -lXxf86vm -lXext -lXcursor -lXrender -lXfixes -lX11 -lpthread -lxcb -lXau -lXdmcp
 
 INCLUDEPATH += /usr/local/include
+TARGET = ../bin/openglvbovao
 }
 
 TEMPLATE = app
-TARGET = openglvbovao
 
 INCLUDEPATH += . \
    ./app \

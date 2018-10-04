@@ -10,11 +10,11 @@ QT       += opengl
 TEMPLATE = app
 
 win32 {
-TARGET = ../../videocubeobj/bin/videocubeobj
-INCLUDEPATH += ".\assimp-4.1.0\include"
-INCLUDEPATH += ".\DevIL\include"
-LIBS += -L"..\videocubeobj\assimp-4.1.0\lib\x64\Debug" -lassimp-vc140-mt
-LIBS += -L"..\videocubeobj\DevIL\lib\x64\Debug" -lDevIL -lILU -lILUT
+TARGET = ../../bin/videocubeobj
+INCLUDEPATH += "..\assimp-4.1.0\include"
+INCLUDEPATH += "..\DevIL\include"
+LIBS += -L"..\assimp-4.1.0\lib\x64\Debug" -lassimp-vc140-mt
+LIBS += -L"..\DevIL\lib\x64\Debug" -lDevIL -lILU -lILUT
 LIBS += -lopengl32
 LIBS += -lGLU32
 
@@ -43,7 +43,7 @@ LIBS += "..\winlib\Release\lcms2.lib"
 }
 
 linux {
-TARGET = ../videocubeobj/bin/videocubeobj
+TARGET = ../bin/videocubeobj
 INCLUDEPATH += /usr/local/include
 LIBS += -L/usr/local/lib -lassimp
 LIBS += -lIL -lILU -lILUT -lGLU
@@ -74,7 +74,8 @@ INCLUDEPATH += . \
    ../qroilib/engine \
    ../qroilib/qroilib \
    ../qroilib/qroilib/document \
-   ../qroilib/qroilib/roilib
+   ../qroilib/qroilib/roilib \
+   ../qroilib/pthread
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
